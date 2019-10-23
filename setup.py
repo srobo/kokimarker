@@ -11,5 +11,5 @@ setup( name = "kokimarker",
 
        maintainer = "Rob Spanton",
        maintainer_email = "rspanton@zepler.net",
-       url = "https://www.studentrobotics.org/trac/wiki/libkoki",
+       url = "https://github.com/srobo/kokimarker",
        )
