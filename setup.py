@@ -7,6 +7,8 @@ setup( name = "kokimarker",
        packages = ["kokimarker"],
        scripts = [ "koki-marker-gen" ],
 
+       install_requires = [ "numpy", "pycairo" ],
+
        maintainer = "Rob Spanton",
        maintainer_email = "rspanton@zepler.net",
        url = "https://www.studentrobotics.org/trac/wiki/libkoki",
