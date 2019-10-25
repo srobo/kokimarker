@@ -7,7 +7,7 @@ import kokimarker
 import argparse
 from collections import namedtuple
 
-FILENAME_FMT = "{prefix}-{code}.pdf"
+FILENAME_FMT = "{prefix}-{codes}-{paper_size}paper.pdf"
 
 PAPER_SIZES = {'A4': (210, 297),
                'A3': (297, 420)}
@@ -37,7 +37,7 @@ def get_args():
     parser.add_argument('--width', type=int, default=100,
                         help="width (in mm) of marker to be produced")
     parser.add_argument('--prefix', default='marker',
-                        help="the prefix to save the PDF under ($PREFIX-$CODE.pdf)")
+                        help="the prefix to save the PDF under ($PREFIX-$CODE-$PAPERSIZE.pdf)")
 
     parser.add_argument('code', type=int, nargs='+',
                         help="""The code(s) to generate a marker for.
@@ -84,7 +84,8 @@ def main():
     dims = PaperDim(*[mm_to_pt(x) for x in PAPER_SIZES[options.paper_size]])
     page_width, page_height = PAPER_SIZES[options.paper_size]
     filename = FILENAME_FMT.format(prefix=options.prefix,
-                                   code='-'.join(map(str,options.code)))
+                                   codes='-'.join("{:03d}".format(code) for code in options.code),
+                                   paper_size=options.paper_size)
 
     # prepare cairo
     surface = cairo_surface(filename, *dims)
