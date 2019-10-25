@@ -84,7 +84,7 @@ def main():
     dims = PaperDim(*[mm_to_pt(x) for x in PAPER_SIZES[options.paper_size]])
     page_width, page_height = PAPER_SIZES[options.paper_size]
     filename = FILENAME_FMT.format(prefix=options.prefix,
-                                   codes='-'.join(map(str,options.code)),
+                                   codes='-'.join("{:03d}".format(code) for code in options.code),
                                    paper_size=options.paper_size)
 
     # prepare cairo
