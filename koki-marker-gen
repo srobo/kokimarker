@@ -7,7 +7,7 @@ import kokimarker
 import argparse
 from collections import namedtuple
 
-FILENAME_FMT = "{prefix}-{code}-{paper_size}paper.pdf"
+FILENAME_FMT = "{prefix}-{codes}-{paper_size}paper.pdf"
 
 PAPER_SIZES = {'A4': (210, 297),
                'A3': (297, 420)}
@@ -84,7 +84,7 @@ def main():
     dims = PaperDim(*[mm_to_pt(x) for x in PAPER_SIZES[options.paper_size]])
     page_width, page_height = PAPER_SIZES[options.paper_size]
     filename = FILENAME_FMT.format(prefix=options.prefix,
-                                   code='-'.join(map(str,options.code)),
+                                   codes='-'.join(map(str,options.code)),
                                    paper_size=options.paper_size)
 
     # prepare cairo
