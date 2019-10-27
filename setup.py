@@ -9,7 +9,7 @@ setup( name = "kokimarker",
 
        install_requires = [ "numpy", "pycairo" ],
 
-       maintainer = "Rob Spanton",
-       maintainer_email = "rspanton@zepler.net",
+       maintainer = "Student Robotics",
+       maintainer_email = "kit-team@studentrobotics.org",
        url = "https://github.com/srobo/kokimarker",
        )
